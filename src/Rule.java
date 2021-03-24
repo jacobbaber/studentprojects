@@ -24,6 +24,8 @@ public abstract class Rule {
 	 */
 	private boolean[] ruleTrueOrFalseArray = new boolean[8];
 	
+	
+
 	/**
 	 * Used for the maximum rule number, which is 255
 	 */
@@ -204,6 +206,14 @@ public abstract class Rule {
 	 */
 	public int getRuleNum() {
 		return ruleInt;
+	}
+	
+	public boolean[] getRuleTrueOrFalseArray() {
+		return ruleTrueOrFalseArray;
+	}
+	
+	public String getRuleBinary() {
+		return ruleBinary;
 	}
 	
 	public abstract String getRuleTable(char falseSymbol, char trueSymbol);
