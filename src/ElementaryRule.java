@@ -1,4 +1,5 @@
 
+
 public class ElementaryRule extends Rule {
 	
 
@@ -96,15 +97,19 @@ public class ElementaryRule extends Rule {
 	public String getRuleTable(char falseSymbol, char trueSymbol) {
 		
 		String neighborhoods = "111 110 101 100 011 010 001 000";
-		neighborhoods.replace('1', trueSymbol);
-		neighborhoods.replace('0', falseSymbol);
+		neighborhoods = neighborhoods.replace('1', trueSymbol);
+		neighborhoods = neighborhoods.replace('0', falseSymbol);
 		String ruleBinary = super.getRuleBinary();
+		ruleBinary = ruleBinary.replace('1', trueSymbol);
+		ruleBinary = ruleBinary.replace('0', falseSymbol);
 		ruleBinary = ruleBinary.replaceAll(".", "$0   ");
-		StringBuilder strB = new StringBuilder();
-		strB.append(" ");
+		ruleBinary = ruleBinary.indent(1);
+		ruleBinary = ruleBinary.replaceAll("[\\n]", "");
+		ruleBinary = ruleBinary.substring(0, ruleBinary.length() - 2);
+		
 	
 		
-		return neighborhoods + System.lineSeparator() + ruleBinary.format(ruleBinary, strB.toString());
+		return neighborhoods + System.lineSeparator() + ruleBinary;
 		
 		
 	}
