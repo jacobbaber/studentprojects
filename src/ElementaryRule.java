@@ -2,14 +2,38 @@
 
 public class ElementaryRule extends Rule {
 	
+	
+
 
 	public ElementaryRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
-		if (ruleNum < 0 || ruleNum > 255) {
-			throw new RuleNumException(0,255);
+		
+		if (ruleNum < MINRULENUM || ruleNum > MAXRULENUM) {
+			throw new RuleNumException(MINRULENUM, MAXRULENUM);
 		}
-		// TODO Auto-generated constructor stub
-	}
+		else {
+			ruleBinary = Integer.toBinaryString(ruleNum);
+			ruleInt = ruleNum;
+			int ruleBinaryInt = Integer.parseInt(ruleBinary);
+			ruleBinary = String.format("%08d", ruleBinaryInt);
+		}
+		
+		// This for loop converts the ruleBinary String into an array
+				// which is later used to compare the generations to the rule
+				// in order to evolve them
+				for (int i = 0; i < ruleBinary.length(); ++i) {
+					if (ruleBinary.charAt(i) == '1') {
+						ruleTrueOrFalseArray[i] = true;
+					}
+					else {
+						ruleTrueOrFalseArray[i] = false;
+					}
+				}
+				
+			}
+		
+		
+	
 
 	@Override
 	public boolean evolve(boolean[] neighborhood) {

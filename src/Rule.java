@@ -11,30 +11,30 @@ public abstract class Rule {
 	/**
 	 * ruleBinary is a String of the given rule in binary form, with eight chars
 	 */
-	private String ruleBinary;
+	protected String ruleBinary;
 	
 	/**
 	 * ruleInt is the int form of the given rule
 	 */
-	private int ruleInt;
+	protected int ruleInt;
 	
 	/**
 	 * ruleTrueOrFalseArray is an array with a length of 8
 	 * that is made up by the 8 digits in the String ruleBinary
 	 */
-	private boolean[] ruleTrueOrFalseArray = new boolean[8];
+	protected boolean[] ruleTrueOrFalseArray = new boolean[8];
 	
 	
 
 	/**
 	 * Used for the maximum rule number, which is 255
 	 */
-	private static final int MAXRULENUM = 255;
+	protected static final int MAXRULENUM = 255;
 	
 	/**
 	 * Used for the minimum rule number, which is 0;
 	 */
-	private static final int MINRULENUM = 0;
+	protected static final int MINRULENUM = 0;
 	
 	
 	
@@ -47,41 +47,17 @@ public abstract class Rule {
 	 * @param ruleNum, integer used to determine the number of the rule used.
 	 */
 	public Rule(int ruleNum) {
-		if (ruleNum < MINRULENUM) {
-			ruleInt = MINRULENUM;
-			ruleBinary = Integer.toBinaryString(MINRULENUM);
-			// ruleBinaryInt is an int in the form of the binary rule number
-			int ruleBinaryInt = Integer.parseInt(ruleBinary);
-			// I then convert that binary int into a formatted String of
-			// 8 digits.
-			ruleBinary = String.format("%08d", ruleBinaryInt);
-		}
-		else if (ruleNum > MAXRULENUM) {
-			ruleBinary = Integer.toBinaryString(MAXRULENUM);
-			ruleInt = MAXRULENUM;
-			int ruleBinaryInt = Integer.parseInt(ruleBinary);
-			ruleBinary = String.format("%08d", ruleBinaryInt);
-		}
-		else {
+		
 			ruleBinary = Integer.toBinaryString(ruleNum);
 			ruleInt = ruleNum;
-			int ruleBinaryInt = Integer.parseInt(ruleBinary);
-			ruleBinary = String.format("%08d", ruleBinaryInt);
-		}
+	}			
+		
 		
 		// This for loop converts the ruleBinary String into an array
 		// which is later used to compare the generations to the rule
 		// in order to evolve them
-		for (int i = 0; i < ruleBinary.length(); ++i) {
-			if (ruleBinary.charAt(i) == '1') {
-				ruleTrueOrFalseArray[i] = true;
-			}
-			else {
-				ruleTrueOrFalseArray[i] = false;
-			}
-		}
-		
-	}
+	
+	
 	
 	/**
 	 * This method takes in a Generation in order to evolve it to
