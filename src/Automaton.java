@@ -98,7 +98,7 @@ public abstract class Automaton {
 		
 	}
 	
-	public abstract Rule createRule(int ruleNum);
+	protected abstract Rule createRule(int ruleNum);
 	
 	/**
 	 * This method evolves a Generation according to the rule
@@ -148,6 +148,8 @@ public abstract class Automaton {
 	}
 	
 	public String getRuleTable() {
+		
+		 return rule.getRuleTable(falseSymbol, trueSymbol);
 		
 	}
 	

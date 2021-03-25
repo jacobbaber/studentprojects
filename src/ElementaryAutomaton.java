@@ -12,9 +12,16 @@ public class ElementaryAutomaton extends Automaton {
 	}
 
 	@Override
-	public Rule createRule(int ruleNum) {
-		// TODO Auto-generated method stub
+	protected Rule createRule(int ruleNum)  {
+		Rule newRule;
+		try {
+			newRule = new ElementaryRule(ruleNum);
+			return newRule;
+		} catch (RuleNumException e) {
+			e.printStackTrace();
+		}
 		return null;
+		
 	}
 
 }
