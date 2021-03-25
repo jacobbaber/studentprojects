@@ -7,6 +7,8 @@ public class ElementaryRule extends Rule {
 	public ElementaryRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
 		
+		ruleTrueOrFalseArray = new boolean[8];
+		 
 		if (ruleNum < MINRULENUM || ruleNum > MAXRULENUM) {
 			throw new RuleNumException(MINRULENUM, MAXRULENUM);
 		}
@@ -15,6 +17,15 @@ public class ElementaryRule extends Rule {
 			ruleInt = ruleNum;
 			int ruleBinaryInt = Integer.parseInt(ruleBinary);
 			ruleBinary = String.format("%08d", ruleBinaryInt);
+		}
+		
+		for (int i = 0; i < ruleBinary.length(); ++i) {
+			if (ruleBinary.charAt(i) == '1') {
+				ruleTrueOrFalseArray[i] = true;
+			}
+			else {
+				ruleTrueOrFalseArray[i] = false;
+			}
 		}
 				
 	}
@@ -26,7 +37,7 @@ public class ElementaryRule extends Rule {
 	public boolean evolve(boolean[] neighborhood) {
 		// TODO Auto-generated method stub
 		
-		boolean[] ruleTrueOrFalseArray = super.getRuleTrueOrFalseArray();
+		
 		boolean evolvedState = false;
 		
 		if ((neighborhood[0] == true) && (neighborhood[1] == true) && (neighborhood[2] == true)) {

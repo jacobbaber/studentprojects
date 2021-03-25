@@ -3,9 +3,14 @@ public class TotalisticRule extends Rule {
 
 	public TotalisticRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
+		ruleTrueOrFalseArray = new boolean[6];
 		if (ruleNum < MINRULENUM || ruleNum > 63) {
 			throw new RuleNumException(MINRULENUM, 63);
 		}
+		ruleBinary = Integer.toBinaryString(ruleNum);
+		ruleInt = ruleNum;
+		int ruleBinaryInt = Integer.parseInt(ruleBinary);
+		ruleBinary = String.format("%06d", ruleBinaryInt);
 		
 		for (int i = 0; i < ruleBinary.length(); ++i) {
 			if (ruleBinary.charAt(i) == '1') {
@@ -20,7 +25,33 @@ public class TotalisticRule extends Rule {
 
 	@Override
 	public boolean evolve(boolean[] neighborhood) {
-		// TODO Auto-generated method stub
+		
+		int trueCount = 0;
+		
+		for (int i = 0;  i < neighborhood.length; ++i) {
+			if (neighborhood[i] == true) {
+				++trueCount;
+			}
+		}
+		if (trueCount == 5) {
+			return ruleTrueOrFalseArray[0];
+		}
+		if (trueCount == 4) {
+			return ruleTrueOrFalseArray[1];
+		}
+		if (trueCount == 3) {
+			return ruleTrueOrFalseArray[2];
+		}
+		if (trueCount == 2) {
+			return ruleTrueOrFalseArray[3];
+		}
+		if (trueCount == 1) {
+			return ruleTrueOrFalseArray[4];
+		}
+		if (trueCount == 0) {
+			return ruleTrueOrFalseArray[5];
+		}
+		
 		return false;
 	}
 

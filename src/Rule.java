@@ -22,7 +22,7 @@ public abstract class Rule {
 	 * ruleTrueOrFalseArray is an array with a length of 8
 	 * that is made up by the 8 digits in the String ruleBinary
 	 */
-	protected boolean[] ruleTrueOrFalseArray = new boolean[8];
+	protected boolean[] ruleTrueOrFalseArray;
 	
 	
 
@@ -185,7 +185,8 @@ public abstract class Rule {
 		return ruleInt;
 	}
 	
-	public boolean[] getRuleTrueOrFalseArray() {
+	public boolean[] getRuleTrueOrFalseArray(int size) {
+		
 		return ruleTrueOrFalseArray;
 	}
 	
