@@ -79,8 +79,14 @@ public class TotalisticRule extends Rule {
 
 	@Override
 	public String getRuleTable(char falseSymbol, char trueSymbol) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String neighborhoods = "5 4 3 2 1 0";
+		String ruleBinaryFormatted = ruleBinary.replaceAll(".", "$0 ");
+		ruleBinaryFormatted = ruleBinaryFormatted.substring(0, ruleBinaryFormatted.length() - 1);
+		ruleBinaryFormatted = ruleBinaryFormatted.replace('1', trueSymbol);
+		ruleBinaryFormatted = ruleBinaryFormatted.replace('0', falseSymbol);
+		return neighborhoods + System.lineSeparator() + ruleBinaryFormatted;
+		
 	}
 	
 
