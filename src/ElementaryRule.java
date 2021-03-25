@@ -16,20 +16,8 @@ public class ElementaryRule extends Rule {
 			int ruleBinaryInt = Integer.parseInt(ruleBinary);
 			ruleBinary = String.format("%08d", ruleBinaryInt);
 		}
-		
-		// This for loop converts the ruleBinary String into an array
-				// which is later used to compare the generations to the rule
-				// in order to evolve them
-				for (int i = 0; i < ruleBinary.length(); ++i) {
-					if (ruleBinary.charAt(i) == '1') {
-						ruleTrueOrFalseArray[i] = true;
-					}
-					else {
-						ruleTrueOrFalseArray[i] = false;
-					}
-				}
 				
-			}
+	}
 		
 		
 	

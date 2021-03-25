@@ -50,6 +50,7 @@ public abstract class Rule {
 		
 			ruleBinary = Integer.toBinaryString(ruleNum);
 			ruleInt = ruleNum;
+			
 	}			
 		
 		
