@@ -2,7 +2,6 @@
 
 public class ElementaryRule extends Rule {
 	
-	
 
 
 	public ElementaryRule(int ruleNum) throws RuleNumException {
