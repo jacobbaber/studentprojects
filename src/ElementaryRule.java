@@ -125,7 +125,8 @@ public class ElementaryRule extends Rule {
 		ruleBinary = ruleBinary.replace('1', trueSymbol);
 		ruleBinary = ruleBinary.replace('0', falseSymbol);
 		ruleBinary = ruleBinary.replaceAll(".", "$0   ");
-		ruleBinary = ruleBinary.indent(1);
+		String rulePad = " ";
+		ruleBinary = rulePad + ruleBinary;
 		ruleBinary = ruleBinary.replaceAll("[\\n]", "");
 		ruleBinary = ruleBinary.substring(0, ruleBinary.length() - 2);
 		

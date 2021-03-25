@@ -46,7 +46,7 @@ public abstract class Rule {
 	 * 
 	 * @param ruleNum, integer used to determine the number of the rule used.
 	 */
-	public Rule(int ruleNum) {
+	protected Rule(int ruleNum) {
 		
 			ruleBinary = Integer.toBinaryString(ruleNum);
 			ruleInt = ruleNum;

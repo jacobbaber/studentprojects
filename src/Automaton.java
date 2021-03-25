@@ -47,7 +47,7 @@ public abstract class Automaton {
 	 * @param ruleNum, rule number used to create Rule object
 	 * @param initial, initial Generation for the arrayList of Generations
 	 */
-	public Automaton(int ruleNum, Generation initial) {
+	protected Automaton(int ruleNum, Generation initial) {
 		rule = createRule(ruleNum);
 		generations.add(initial);
 		falseSymbol = '0';
@@ -66,7 +66,7 @@ public abstract class Automaton {
 	 * @param filename, name of the file with the automaton values
 	 * @throws IOException, throws exception if file of filename does not exist
 	 */
-	public Automaton(String filename) throws IOException {
+	protected Automaton(String filename) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String ruleNum = br.readLine();
 		
