@@ -5,7 +5,7 @@ public class TotalisticAutomaton extends Automaton {
 	public TotalisticAutomaton(int ruleNum, Generation initial) {
 		super(ruleNum, initial);
 	}
-	
+
 	public TotalisticAutomaton(String filename) throws IOException {
 		super(filename);
 	}
@@ -20,8 +20,5 @@ public class TotalisticAutomaton extends Automaton {
 		}
 		return null;
 	}
-	
-	
-	
 
 }

@@ -4,15 +4,14 @@ public class ElementaryAutomaton extends Automaton {
 
 	public ElementaryAutomaton(int ruleNum, Generation initial) {
 		super(ruleNum, initial);
-		// TODO Auto-generated constructor stub
 	}
-	
+
 	public ElementaryAutomaton(String filename) throws IOException {
 		super(filename);
 	}
 
 	@Override
-	protected Rule createRule(int ruleNum)  {
+	protected Rule createRule(int ruleNum) {
 		Rule newRule;
 		try {
 			newRule = new ElementaryRule(ruleNum);
@@ -21,7 +20,7 @@ public class ElementaryAutomaton extends Automaton {
 			e.printStackTrace();
 		}
 		return null;
-		
+
 	}
 
 }
