@@ -1,5 +1,7 @@
 
 public class ElementaryRule extends Rule {
+	
+	private static final int MAXRULENUM = 255;
 
 	public ElementaryRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);

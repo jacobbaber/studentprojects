@@ -25,11 +25,6 @@ public abstract class Rule {
 	protected boolean[] ruleTrueOrFalseArray;
 
 	/**
-	 * Used for the maximum rule number, which is 255
-	 */
-	protected static final int MAXRULENUM = 255;
-
-	/**
 	 * Used for the minimum rule number, which is 0;
 	 */
 	protected static final int MINRULENUM = 0;

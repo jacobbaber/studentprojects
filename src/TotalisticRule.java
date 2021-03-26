@@ -1,11 +1,13 @@
 
 public class TotalisticRule extends Rule {
+	
+	private static final int MAXRULENUM = 63;
 
 	public TotalisticRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
 		ruleTrueOrFalseArray = new boolean[6];
-		if (ruleNum < MINRULENUM || ruleNum > 63) {
-			throw new RuleNumException(MINRULENUM, 63);
+		if (ruleNum < MINRULENUM || ruleNum > MAXRULENUM) {
+			throw new RuleNumException(MINRULENUM, MAXRULENUM);
 		}
 		ruleBinary = Integer.toBinaryString(ruleNum);
 		ruleInt = ruleNum;
